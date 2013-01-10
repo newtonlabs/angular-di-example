@@ -1,6 +1,6 @@
 'use strict';
 
-diExampleApp.controller('MainCtrl', ['$scope', 'dropLowestGrade', 'parseCom',  function($scope, calculatorService, studentInfoService) {
+diExampleApp.controller('MainCtrl', ['$scope', 'average', 'parseCom',  function($scope, calculatorService, studentInfoService) {
   // Initialize the controller
   // Call the Grade service and pass functions based on success and failure
   studentInfoService.students(function(students) {
