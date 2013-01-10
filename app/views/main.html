@@ -5,12 +5,21 @@
       <option ng-repeat="student in students">{{student}}</option>
     </select>
   </p>
+</div>
 
-  <h1>Report Card</h1>
-  <table>
-    <tr ng-repeat="(subject, grade) in reportCard">
-      <td>{{subject}}</td>
-      <td>{{grade}}</td>
-    </tr>
+  <h2>Report Card</h1>
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="(subject, grade) in reportCard">
+        <td>{{subject}}</td>
+        <td>{{grade}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
