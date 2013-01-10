@@ -1,25 +1,28 @@
 'use strict';
 
-diApp.controller('MainCtrl', function($scope) {
-  // GradeService(studentId).getGrades()
-  // CalculatorService(grades) with different calculator
-  // Drop down with different students
+diExampleApp.controller('MainCtrl', ['$scope', 'dropLowestGrade', 'parseCom',  function($scope, calculatorService, gradeService) {
 
+  gradeService.students(function(students) {
+    $scope.students = students;
+  },
+  function(students) {
+    $scope.students = [];
+  });
 
-
-  $scope.student = 'Thomas'
-
-  // Refactor to DI this
-  var studentGrades = {
-    'Social Studies': [78, 79, 80, 99],
-    'Science': [100, 95, 93, 99],
-    'Computer Science': [100,100,100,100]
+  $scope.gradePerSubject = function(subjects) {
+    _.each(subjects, function(grades, subject) {
+      $scope.reportCard[subject] = calculatorService.grade(grades);
+    });
   };
 
-  $scope.reportCard = {};
+  $scope.buildReportCard = function() {
+    $scope.reportCard = {};
 
-  _.each(studentGrades, function(subjectGrades, subject) {
-    $scope.reportCard[subject] = _.reduce(subjectGrades, function(memo, grade) {return memo + grade}, 0 ) / subjectGrades.length;
-  })
-
-});
+    gradeService.subjects($scope.student, function(subjects) {
+      $scope.gradePerSubject(subjects);
+    },
+    function(subjects) {
+      $scope.reportCard = {};
+    });
+  };
+}]);

@@ -1,6 +1,16 @@
 <div class="hero-unit">
-  <h1>Report Card for {{student}}!</h1>
-  <ul>
-      <li ng-repeat="(subject, grade) in reportCard">({{grade}}) {{subject}}</li>
-  </ul>
+  <p>
+    Students:
+    <select ng-model="student" ng-change="buildReportCard()">
+      <option ng-repeat="student in students">{{student}}</option>
+    </select>
+  </p>
+
+  <h1>Report Card</h1>
+  <table>
+    <tr ng-repeat="(subject, grade) in reportCard">
+      <td>{{subject}}</td>
+      <td>{{grade}}</td>
+    </tr>
+  </table>
 </div>

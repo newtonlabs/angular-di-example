@@ -11,6 +11,8 @@ files = [
   JASMINE_ADAPTER,
   'app/scripts/vendor/angular.js',
   'test/vendor/angular-mocks.js',
+  'app/components/parse/parse-1.1.15.min.js',
+  'app/components/underscore/underscore.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
@@ -20,7 +22,7 @@ files = [
 
 // list of files to exclude
 exclude = [
-  
+
 ];
 
 

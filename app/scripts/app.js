@@ -1,6 +1,6 @@
 'use strict';
 
-var diApp = angular.module('diApp', [])
+var diExampleApp = angular.module('diExampleApp', [])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -11,3 +11,4 @@ var diApp = angular.module('diApp', [])
         redirectTo: '/'
       });
   }]);
+
